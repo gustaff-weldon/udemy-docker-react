@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+
+before_install:
+  - docker build -t gustaffweldon/udemy-docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true gustaffweldon/udemy-docker-react yarn test
